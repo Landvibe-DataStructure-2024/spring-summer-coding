@@ -1,0 +1,36 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/header :: header"/>
+<body>
+
+<div class="container">
+    <div th:replace="fragments/bodyHeader :: bodyHeader"/>
+    <form action="/core/deposit" method="post">
+        <div class="form-group">
+            <label for="memberId">회원 선택</label>
+            <select id="memberId" name="memberId" class="form-control">
+                <option value="" disabled selected>회원 선택</option>
+                <option th:each="member : ${members}" th:value="${member.id}" th:text="${member.name}"></option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="policy">보너스 선택</label>
+            <select id="policy" name="policy" class="form-control">
+                <option value="" disabled selected>보너스 선택</option>
+                <option value="fixBonusPolicy">고정 보너스</option>
+                <option value="rateBonusPolicy">정률 보너스</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="amount">입금할 금액</label>
+            <input type="number" id="amount" name="amount" class="form-control" placeholder="입금할 금액을 입력하세요">
+        </div>
+        <button type="submit" class="btn btn-primary">입금</button>
+    </form>
+    <br/>
+    <div th:replace="fragments/footer :: footer"/>
+
+</div> <!-- /container -->
+
+</body>
+</html>

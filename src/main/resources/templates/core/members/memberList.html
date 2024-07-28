@@ -11,21 +11,18 @@
             <thead>
             <tr>
                 <th>#</th>
-                <th>상품명</th>
-                <th>가격</th>
-                <th>재고수량</th>
+                <th>이름</th>
+                <th>등급</th>
+                <th>잔액</th>
                 <th></th>
             </tr>
             </thead>
             <tbody>
-            <tr th:each="item : ${items}">
-                <td th:text="${item.id}"></td>
-                <td th:text="${item.name}"></td>
-                <td th:text="${item.price}"></td>
-                <td th:text="${item.count}"></td>
-                <td>
-                    <a href="#" th:href="@{/items/{id}/edit (id=${item.id})}" class="btn btn-primary" role="button">수정</a>
-                </td>
+            <tr th:each="member : ${members}">
+                <td th:text="${member.id}"></td>
+                <td th:text="${member.name}"></td>
+                <td th:text="${member.role}"></td>
+                <td th:text="${member.getMoney().getAmount()}"></td>
             </tr>
             </tbody>
         </table>
