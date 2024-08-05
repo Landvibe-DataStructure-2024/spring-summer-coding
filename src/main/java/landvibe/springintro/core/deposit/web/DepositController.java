@@ -1,6 +1,5 @@
 package landvibe.springintro.core.deposit.web;
 
-import landvibe.springintro.core.AppConfig;
 import landvibe.springintro.core.deposit.service.DepositService;
 import landvibe.springintro.core.member.Member;
 import landvibe.springintro.core.member.service.MemberService;

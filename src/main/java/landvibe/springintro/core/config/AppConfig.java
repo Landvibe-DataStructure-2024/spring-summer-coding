@@ -1,4 +1,4 @@
-package landvibe.springintro.core;
+package landvibe.springintro.core.config;
 
 import landvibe.springintro.core.deposit.policy.BonusPolicy;
 import landvibe.springintro.core.deposit.policy.FixBonusPolicy;
