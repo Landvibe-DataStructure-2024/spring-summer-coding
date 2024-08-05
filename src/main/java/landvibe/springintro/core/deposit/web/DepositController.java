@@ -1,10 +1,9 @@
 package landvibe.springintro.core.deposit.web;
 
+import landvibe.springintro.core.AppConfig;
 import landvibe.springintro.core.deposit.service.DepositService;
-import landvibe.springintro.core.deposit.service.DepositServiceImpl;
 import landvibe.springintro.core.member.Member;
 import landvibe.springintro.core.member.service.MemberService;
-import landvibe.springintro.core.member.service.MemberServiceImpl;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,9 +16,13 @@ import java.util.List;
 @Controller
 @RequestMapping("/core/deposit")
 public class DepositController {
+    private final MemberService memberService;
+    private final DepositService depositService;
 
-    private final MemberService memberService = new MemberServiceImpl();
-    private final DepositService depositService = new DepositServiceImpl();
+    public DepositController(MemberService memberService, DepositService depositService) {
+        this.memberService = memberService;
+        this.depositService = depositService;
+    }
 
     @GetMapping
     public String depositForm(Model model) {

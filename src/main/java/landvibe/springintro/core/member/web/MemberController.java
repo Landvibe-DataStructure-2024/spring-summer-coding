@@ -3,7 +3,6 @@ package landvibe.springintro.core.member.web;
 import landvibe.springintro.core.member.Member;
 import landvibe.springintro.core.member.Role;
 import landvibe.springintro.core.member.service.MemberService;
-import landvibe.springintro.core.member.service.MemberServiceImpl;
 import landvibe.springintro.core.money.Money;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,7 +17,11 @@ import java.util.*;
 @RequestMapping("/core/members")
 public class MemberController {
 
-    private final MemberService memberService = new MemberServiceImpl();
+    private final MemberService memberService;
+
+    public MemberController(MemberService memberService) {
+        this.memberService = memberService;
+    }
 
     @GetMapping("/new")
     public String joinForm() {
